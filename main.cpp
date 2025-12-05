@@ -1,3 +1,9 @@
+/** Ini adalah sebuah program Kasir yang bisa berfungsi untuk melakukan transaksi, 
+    menambahkan barang dan juga bisa untuk menghapus dan mengedit barang. Barang
+    yang di tambahkan akan disimpan kedalam suatu file yang kami namakan barang.txt
+    yang akan dibuat ketika program ini dijalankan pertama kali.
+**/
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -29,11 +35,11 @@ void pauseScreen();
 int cariIndexBarang(int id);
 
 int main() {
-    muatData();
+    muatData(); // untuk membaca file barang.txt sebelum memulai program
 
     int pilihan;
     do {
-        clearScreen();
+        clearScreen(); // layar akan selalu dibersihkan supaya tidak menumpuk di halaman yang sama
         cout << "=== SISTEM MANAJEMEN TOKO KELONTONG ===" << endl;
         cout << "1. Tampilkan Data Barang" << endl;
         cout << "2. Tambah Barang Baru" << endl;
@@ -96,6 +102,7 @@ int main() {
 void clearScreen() {
    system("cls");
 }
+// fungsi pauseScreen() untuk menjeda frame supaya tidak langsung lanjut sebelum input enter
 void pauseScreen() {
     cout << "\nTekan ENTER untuk melanjutkan...";
     cin.ignore();
@@ -113,8 +120,8 @@ int cariIndexBarang(int id) {
 
 void muatData() {
     ifstream file(NAMA_FILE);
-    if (!file.is_open()) {
-        cout << "Gagal membuka file data. Memulai dengan data kosong." << endl;
+    if (!file.is_open()) { 
+        cout << "Gagal membuka file data. Memulai dengan data kosong." << endl; // ini akan berjalan ketika data kosong atau file barang.txt belum dibuat
         return;
     }
 
