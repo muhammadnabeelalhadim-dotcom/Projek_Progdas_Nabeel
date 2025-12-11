@@ -20,6 +20,31 @@ void pauseScreen() {
     cin.get();
 };
 
+// eitss sebelum masuk ke main program, harus login dulu
+bool loginAdmin() {
+    const string USERNAME = "gueyangpunyatoko"; // INII USERNAME!!
+    const string PASSWORD = "tokosudahbuka"; // INII PASSWORD!!
+    const int MAX_ATTEMPTS = 3;
+    
+    int attempts = 0;
+    while (attempts < MAX_ATTEMPTS) {
+        string username, password;
+        cout << "=== LOGIN ADMIN ===" << endl;
+        cout << "Username: ";
+        getline(cin, username);
+        cout << "Password: ";
+        getline(cin, password);
+        
+        if (username == USERNAME && password == PASSWORD) {
+            return true;
+        }
+        clearScreen();
+        cout << "Username atau password salah. Coba lagi." << endl;
+        attempts++;
+    }
+    return false;  
+}
+
 int main() {
     Toko toko;
 
