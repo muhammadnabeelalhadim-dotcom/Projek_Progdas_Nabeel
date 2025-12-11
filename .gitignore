@@ -1,0 +1,7 @@
+# Compiled binaries
+kasir
+*.exe
+*.out
+
+# Text data files (runtime generated)
+barang.txt

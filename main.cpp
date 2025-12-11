@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
 #include "Toko.h"
 
 
@@ -20,7 +21,57 @@ void pauseScreen() {
     cin.get();
 };
 
+bool loginAdmin() {
+    const string USERNAME = "admin";
+    const string PASSWORD = "password123";
+    const int MAX_ATTEMPTS = 3;
+    
+    int attempts = 0;
+    
+    while (attempts < MAX_ATTEMPTS) {
+        clearScreen();
+        cout << "=== SISTEM LOGIN ADMIN ===" << endl;
+        cout << "Percobaan ke-" << (attempts + 1) << " dari " << MAX_ATTEMPTS << endl;
+        cout << "===========================" << endl;
+        
+        string username, password;
+        
+        cout << "Username: ";
+        getline(cin, username);
+        
+        cout << "Password: ";
+        getline(cin, password);
+        
+        if (username == USERNAME && password == PASSWORD) {
+            clearScreen();
+            cout << "\n=== LOGIN BERHASIL ===" << endl;
+            cout << "Selamat datang, Admin!" << endl;
+            cout << "======================" << endl << endl;
+            return true;
+        } else {
+            attempts++;
+            if (attempts < MAX_ATTEMPTS) {
+                cout << "\nUsername atau password salah!" << endl;
+                cout << "Silakan coba lagi." << endl << endl;
+            }
+        }
+    }
+    
+    clearScreen();
+    cout << "\n=== LOGIN GAGAL ===" << endl;
+    cout << "Anda telah mencapai batas maksimal percobaan login." << endl;
+    cout << "Program akan keluar." << endl;
+    cout << "====================" << endl;
+    
+    return false;
+}
+
 int main() {
+    // Login admin sebelum akses ke menu
+    if (!loginAdmin()) {
+        return 1; // Keluar jika login gagal
+    }
+    
     Toko toko;
 
     int pilihan;
