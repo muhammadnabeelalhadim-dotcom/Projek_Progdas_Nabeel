@@ -19,7 +19,6 @@ void pauseScreen() {
     cin.ignore();
     cin.get();
 };
-
 // eitss sebelum masuk ke main program, harus login dulu
 bool loginAdmin() {
     const string USERNAME = "gueyangpunyatoko"; // INII USERNAME!!
@@ -72,7 +71,6 @@ int main() {
             pauseScreen();
             continue;
         }
-    
 
         if (pilihan < 1 || pilihan >6) {
             cout << "Input tidak valid! Masukkan angka." << endl;
@@ -123,4 +121,6 @@ int main() {
     return 0;
     
 }
+
+
 
