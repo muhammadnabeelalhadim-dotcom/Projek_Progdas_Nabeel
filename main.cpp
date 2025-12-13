@@ -46,6 +46,10 @@ bool loginAdmin() {
 }
 
 int main() {
+    if (!loginAdmin()) {
+        cout << "Gagal login setelah 3 percobaan. Program dihentikan." << endl;
+        return 0;
+    }
     Toko toko;
 
     int pilihan;
